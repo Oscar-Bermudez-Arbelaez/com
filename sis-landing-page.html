@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIS / SOLUCIÓN INTEGRAL DE SERVICIO</title>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #007bff;
+            --accent-color: #17a2b8;
+            --dark-color: #343a40;
+            --light-color: #f8f9fa;
+            --success-color: #28a745;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--light-color);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            margin-left: 30px;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 123, 255, 0.9) 100%), url('/api/placeholder/1200/800') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: white;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Services Section */
+        .section {
+            padding: 100px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-icon {
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--light-color);
+            font-size: 40px;
+            color: var(--primary-color);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-title {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+        }
+
+        /* Technologies Section */
+        .technologies {
+            background-color: #f1f5f9;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .tech-item {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .tech-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .tech-icon {
+            font-size: 50px;
+            margin-bottom: 15px;
+            color: var(--accent-color);
+        }
+
+        .tech-name {
+            font-weight: 700;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        /* About Section */
+        .about-container {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .about-title {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--dark-color);
+        }
+
+        .about-description {
+            margin-bottom: 25px;
+            color: #555;
+            font-size: 16px;
+        }
+
+        .about-points {
+            list-style: none;
+        }
+
+        .about-points li {
+            margin-bottom: 15px;
+            padding-left: 30px;
+            position: relative;
+        }
+
+        .about-points li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--success-color);
+            font-weight: bold;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--dark-color);
+            color: white;
+        }
+
+        .contact-container {
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .contact-title {
+            font-size: 28px;
+            margin-bottom: 30px;
+            color: white;
+        }
+
+        .contact-detail {
+            display: flex;
+            margin-bottom: 25px;
+            align-items: center;
+        }
+
+        .contact-icon {
+            margin-right: 15px;
+            background-color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .qr-code {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-image {
+            width: 200px;
+            height: 200px;
+            margin-bottom: 20px;
+        }
+
+        .qr-text {
+            font-size: 18px;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #777;
+            padding: 30px 0;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            color: #777;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-social {
+            display: flex;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-social li {
+            margin: 0 10px;
+        }
+
+        .footer-social a {
+            color: #777;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .footer-social a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-text {
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 40px;
+            }
+            .hero p {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                right: -100%;
+                flex-direction: column;
+                background-color: var(--dark-color);
+                width: 80%;
+                height: calc(100vh - 80px);
+                padding: 20px;
+                transition: right 0.3s ease;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 0 0 20px 0;
+            }
+            
+            .nav-toggle {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .hero p {
+                font-size: 16px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+            
+            .section {
+                padding: 60px 0;
+            }
+            
+            .section-title {
+                font-size: 24px;
+            }
+            
+            .service-title {
+                font-size: 18px;
+            }
+            
+            .about-title {
+                font-size: 24px;
+            }
+            
+            .contact-title {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">SIS <span>/</span> SOLUCIÓN INTEGRAL DE SERVICIO</a>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <button class="nav-toggle">☰</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Desarrador Full-Stack</h1>
+                <p>"Impulsa tu negocio al siguiente nivel. Transformamos tus ideas en soluciones digitales de alto impacto, diseñadas para generar resultados tangibles. Con tecnologías de vanguardia y un código de calidad superior, te ayudamos a crecer, innovar y destacar en un mercado competitivo."</p>
+                <div class="hero-buttons">
+                    <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
+                    <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nuestros Servicios</h2>
+                <p>"Tu visión, nuestra experiencia. Creamos soluciones digitales excepcionales, diseñadas a la medida de tus necesidades y objetivos. Desde la conceptualización hasta el despliegue, nos comprometemos con la excelencia en cada detalle, para que tu negocio brille en el mundo digital."</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>🖥️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Desarrollo Web Full Stack</h3>
+                        <p>Creamos aplicaciones web completas y personalizadas, desde el diseño de la interfaz hasta la implementación del servidor.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>📱</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Sitios Web Responsivos</h3>
+                        <p>Desarrollamos sitios web que se adaptan perfectamente a todos los dispositivos, garantizando una experiencia de usuario óptima.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>⚙️</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Aplicaciones Web Dinámicas</h3>
+                        <p>Implementamos soluciones web altamente interactivas y dinámicas utilizando frameworks modernos y eficientes.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>🔒</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Seguridad y Optimización</h3>
+                        <p>Garantizamos que tus aplicaciones web sean seguras, rápidas y cumplan con los estándares actuales de la industria.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>🔄</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Mantenimiento y Soporte</h3>
+                        <p>Ofrecemos servicios continuos de mantenimiento y soporte para garantizar que tus aplicaciones funcionen sin problemas.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <span>📊</span>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Consultoría Técnica</h3>
+                        <p>Asesoramos sobre las mejores tecnologías y prácticas para tus proyectos, ayudándote a tomar decisiones informadas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technologies Section -->
+    <section id="tecnologias" class="section technologies">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologías que Dominamos</h2>
+                <p>Trabajamos con las tecnologías más avanzadas del mercado</p>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <span>🌐</span>
+                    </div>
+                    <h3 class="tech-name">HTML5 / CSS3</h3>
+                    <p>Estructuras web semánticas y estilos modernos</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <span>🔄</span>
+                    </div>
+                    <h3 class="tech-name">Node.js</h3>
+                    <p>Entorno de ejecución para JavaScript del lado del servidor</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <span>☕</span>
+                    </div>
+                    <h3 class="tech-name">Java</h3>
+                    <p>Desarrollo de aplicaciones empresariales robustas</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <span>🅰️</span>
+                    </div>
+                    <h3 class="tech-name">Angular</h3>
+                    <p>Framework para aplicaciones web de una sola página</p>
+                </div>
+                <div class="tech-item">
+                    <div class="tech-icon">
+                        <span>🐍</span>
+                    </div>
+                    <h3 class="tech-name">Python</h3>
+                    <p>Desarrollo backend eficiente y análisis de datos</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="acerca" class="section">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="EscribiendoCodigo.jpeg" alt="Desarrollo profesional">
+                </div>
+                <div class="about-content">
+                    <h2 class="about-title">¿Por qué elegirnos?</h2>
+                    <p class="about-description">
+                        En SIS nos dedicamos a ofrecer soluciones tecnológicas de calidad, con un enfoque en la excelencia técnica y la satisfacción del cliente. Nuestro compromiso es brindar servicios profesionales que superen sus expectativas.
+                    </p>
+                    <ul class="about-points">
+                        <li>Más de 5 años de experiencia en el sector</li>
+                        <li>Equipo de profesionales altamente cualificados</li>
+                        <li>Metodologías ágiles para un desarrollo eficiente</li>
+                        <li>Soluciones personalizadas a medida</li>
+                        <li>Compromiso con la calidad y el rendimiento</li>
+                        <li>Soporte técnico continuo y mantenimiento</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contacto" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contáctanos</h2>
+                <p>Estamos listos para ayudarte con tu próximo proyecto</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3 class="contact-title">Información de Contacto</h3>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📧</div>
+                        <div>
+                            <h4>Email</h4>
+                            <a href="https://outlook.live.com/mail/0/"><p>info@sis-solucion.com</p></a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Teléfono</h4>
+                            <p>+57 317 269 8243</p>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-icon">🌐</div>
+                        <div>
+                            <h4>Redes Sociales</h4>
+                            <a href="https://www.facebook.com/"><p>@sis.solucion</p></a>
+                            <a href="https://www.instagram.com/"><p>@sis.solucion</p></a>
+                            <a href="https://www.tiktok.com/es/"><p>@sis.solucion</p></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="qr-code">
+                    <div id="qrcode" class="qr-image"></div>
+                    <p class="qr-text">Escanea el código QR para contactarnos por WhatsApp</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">SIS / SOLUCIÓN INTEGRAL DE SERVICIO</div>
+                <ul class="footer-links">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#servicios">Servicios</a></li>
+                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+                <ul class="footer-social">
+                    <li><a href="#">FB</a></li>
+                    <li><a href="#">IG</a></li>
+                    <li><a href="#">LI</a></li>
+                    <li><a href="#">GH</a></li>
+                </ul>
+                <p class="footer-text">&copy; 2025 SIS - Solución Integral de Servicio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        // Mobile Menu Toggle
+        const navToggle = document.querySelector('.nav-toggle');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu on click
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Smooth Scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Generate QR code for WhatsApp
+        new QRCode(document.getElementById("qrcode"), {
+            text: "https://wa.me/573172698243",
+            width: 200,
+            height: 200,
+            colorDark: "#0056b3",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+
+        // Revealing elements on scroll
+        const revealOnScroll = () => {
+            const elements = document.querySelectorAll('.service-card, .tech-item, .about-image, .about-content, .contact-info, .qr-code');
+            
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementTop < windowHeight - 100) {
+                    element.style.opacity = 1;
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Initial reveal and scroll event
+        window.addEventListener('load', () => {
+            document.querySelectorAll('.service-card, .tech-item, .about-image, .about-content, .contact-info, .qr-code').forEach(el => {
+                el.style.opacity = 0;
+                el.style.transform = 'translateY(50px)';
+                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            });
+            
+            revealOnScroll();
+            window.addEventListener('scroll', revealOnScroll);
+        });
+    </script>
+</body>
+</html>
