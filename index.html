@@ -4,295 +4,497 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SIS / SOLUCIÓN INTEGRAL DE SERVICIO</title>
+    <meta name="description" content="SIS en Bogotá: redes contra incendio, SAI/UPS, aires acondicionados de precisión, refrigeración industrial, software para equipos Schneider APC y los negocios EdukarKid, Tesla Inovation, Cobertizo Inflable y DevOps.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #0056b3;
-            --secondary-color: #007bff;
-            --accent-color: #17a2b8;
-            --dark-color: #343a40;
-            --light-color: #f8f9fa;
-            --success-color: #28a745;
+            --azul-plano: #0f2d4a;
+            --azul-fondo: #0a2239;
+            --papel: #f5f7fa;
+            --tinta: #17212b;
+            --tinta-suave: #4a5866;
+            --verde-sis: #00a651;
+            --verde-oscuro: #008742;
+            --cian-linea: #2bb3d9;
+            --ambar: #f2a900;
+            --linea: #d5dde6;
+            --blanco: #ffffff;
+            --titulos: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
+            --texto: 'Barlow', 'Segoe UI', Tahoma, Arial, sans-serif;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
+            font-family: var(--texto);
+            font-size: 17px;
             line-height: 1.6;
-            color: #333;
-            background-color: var(--light-color);
+            color: var(--tinta);
+            background-color: var(--papel);
+        }
+
+        section[id] {
+            scroll-margin-top: 72px;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        a:focus-visible,
+        button:focus-visible {
+            outline: 3px solid var(--ambar);
+            outline-offset: 3px;
         }
 
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1160px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--titulos);
+            line-height: 1.12;
+            letter-spacing: -0.005em;
         }
 
         /* Header */
         header {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 20px 0;
+            background-color: var(--azul-fondo);
+            color: var(--blanco);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            min-height: 68px;
+            gap: 20px;
         }
 
         .logo {
-            font-size: 28px;
+            font-family: var(--titulos);
+            font-size: 22px;
             font-weight: 700;
-            color: white;
+            color: var(--blanco);
             text-decoration: none;
+            line-height: 1.1;
         }
 
         .logo span {
-            color: var(--accent-color);
+            color: var(--verde-sis);
+        }
+
+        .logo small {
+            display: block;
+            font-family: var(--texto);
+            font-size: 12px;
+            font-weight: 400;
+            color: #b9cadb;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-        }
-
-        .nav-menu li {
-            margin-left: 30px;
+            gap: 26px;
         }
 
         .nav-menu a {
-            color: white;
+            color: var(--blanco);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s ease;
+            font-size: 16px;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
         }
 
         .nav-menu a:hover {
-            color: var(--accent-color);
+            border-bottom-color: var(--verde-sis);
         }
 
         .nav-toggle {
             display: none;
             background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 4px;
+            color: var(--blanco);
+            font-size: 22px;
+            line-height: 1;
+            padding: 6px 10px;
             cursor: pointer;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, rgba(0, 86, 179, 0.9) 0%, rgba(0, 123, 255, 0.9) 100%), url('/api/placeholder/1200/800') center/cover no-repeat;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding-top: 80px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 20px;
-            margin-bottom: 30px;
-        }
-
+        /* Botones */
         .btn {
             display: inline-block;
-            padding: 12px 30px;
-            border-radius: 5px;
+            padding: 13px 24px;
+            border-radius: 4px;
             text-decoration: none;
-            font-weight: 700;
+            font-family: var(--texto);
+            font-weight: 600;
+            font-size: 16px;
+            border: 2px solid transparent;
             cursor: pointer;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            border: 2px solid var(--primary-color);
+            background-color: var(--verde-sis);
+            color: var(--blanco);
+            border-color: var(--verde-sis);
         }
 
         .btn-primary:hover {
-            background-color: transparent;
-            color: white;
+            background-color: var(--verde-oscuro);
+            border-color: var(--verde-oscuro);
         }
 
         .btn-outline {
             background-color: transparent;
-            color: white;
-            border: 2px solid white;
-            margin-left: 15px;
+            color: var(--blanco);
+            border-color: rgba(255, 255, 255, 0.6);
         }
 
         .btn-outline:hover {
-            background-color: white;
-            color: var(--primary-color);
+            border-color: var(--blanco);
+            background-color: rgba(255, 255, 255, 0.08);
         }
 
-        /* Services Section */
+        /* Inicio */
+        .hero {
+            background-color: var(--azul-plano);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+            background-size: 32px 32px;
+            color: var(--blanco);
+            padding: 132px 0 76px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+            gap: 48px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 5.2vw, 60px);
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: #d6e2ee;
+            max-width: 34em;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .unifilar {
+            border: 1px solid rgba(255, 255, 255, 0.28);
+            background-color: rgba(10, 34, 57, 0.55);
+        }
+
+        .unifilar svg {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .unifilar figcaption {
+            border-top: 1px solid rgba(255, 255, 255, 0.28);
+            padding: 9px 14px;
+            font-size: 14px;
+            color: #b9cadb;
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .u-linea {
+            stroke: var(--cian-linea);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .u-nodo {
+            fill: var(--cian-linea);
+        }
+
+        .u-tierra {
+            stroke: var(--verde-sis);
+            stroke-width: 2.5;
+            fill: none;
+            stroke-linecap: round;
+        }
+
+        .u-nombre {
+            font-family: var(--titulos);
+            font-size: 19px;
+            font-weight: 600;
+            fill: var(--blanco);
+        }
+
+        .u-detalle {
+            font-family: var(--texto);
+            font-size: 13.5px;
+            fill: #b9cadb;
+        }
+
+        .u-fuente {
+            font-family: var(--titulos);
+            font-size: 17px;
+            font-weight: 700;
+            fill: var(--blanco);
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .u-ramal {
+                stroke-dasharray: 240;
+                stroke-dashoffset: 240;
+                animation: energizar 0.7s ease-out forwards;
+            }
+
+            .u-ramal:nth-of-type(2) { animation-delay: 0.12s; }
+            .u-ramal:nth-of-type(3) { animation-delay: 0.24s; }
+            .u-ramal:nth-of-type(4) { animation-delay: 0.36s; }
+            .u-ramal:nth-of-type(5) { animation-delay: 0.48s; }
+
+            @keyframes energizar {
+                to { stroke-dashoffset: 0; }
+            }
+        }
+
+        /* Secciones */
         .section {
-            padding: 100px 0;
+            padding: 88px 0;
         }
 
         .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+            max-width: 760px;
+            margin-bottom: 44px;
         }
 
         .section-title {
-            font-size: 36px;
-            color: var(--dark-color);
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 15px;
+            font-size: clamp(30px, 3.6vw, 42px);
+            font-weight: 700;
+            color: var(--azul-plano);
+            margin-bottom: 14px;
         }
 
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--accent-color);
+        .section-header p {
+            color: var(--tinta-suave);
+            font-size: 18px;
         }
 
-        .services-grid {
+        /* Negocios */
+        .negocios {
+            background-color: var(--blanco);
+            border-bottom: 1px solid var(--linea);
+        }
+
+        .negocios-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 22px;
         }
 
-        .service-card {
-            background-color: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .negocio {
+            display: grid;
+            grid-template-columns: 76px minmax(0, 1fr);
+            gap: 20px;
+            padding: 26px;
+            background-color: var(--papel);
+            border: 1px solid var(--linea);
+            border-left: 6px solid var(--marca);
         }
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .service-icon {
-            height: 80px;
+        .negocio-icono {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background-color: var(--marca);
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: var(--light-color);
-            font-size: 40px;
-            color: var(--primary-color);
         }
 
-        .service-content {
-            padding: 25px;
+        .negocio-icono svg {
+            width: 40px;
+            height: 40px;
+            stroke: var(--blanco);
+            stroke-width: 2;
+            fill: none;
+            stroke-linecap: round;
+            stroke-linejoin: round;
         }
 
-        .service-title {
-            font-size: 22px;
-            margin-bottom: 15px;
-            color: var(--dark-color);
-        }
-
-        /* Technologies Section */
-        .technologies {
-            background-color: #f1f5f9;
-        }
-
-        .tech-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-
-        .tech-item {
-            background-color: white;
-            padding: 30px 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .tech-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .tech-icon {
-            font-size: 50px;
-            margin-bottom: 15px;
-            color: var(--accent-color);
-        }
-
-        .tech-name {
+        .negocio h3 {
+            font-size: 27px;
             font-weight: 700;
-            color: var(--dark-color);
-            margin-bottom: 10px;
+            color: var(--tinta);
+            margin-bottom: 8px;
         }
 
-        /* About Section */
-        .about-container {
-            display: flex;
+        .negocio p {
+            color: var(--tinta-suave);
+            margin-bottom: 14px;
+        }
+
+        .negocio-enlace {
+            font-weight: 600;
+            color: var(--azul-plano);
+            text-decoration: underline;
+            text-decoration-color: var(--marca);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+        }
+
+        .negocio-enlace:hover {
+            color: var(--tinta);
+            text-decoration-thickness: 3px;
+        }
+
+        .edukarkid { --marca: #e8590c; }
+        .tesla { --marca: #c9252d; }
+        .cobertizo { --marca: #00a651; }
+        .devops { --marca: #3d5bd9; }
+
+        /* Ingeniería: cuadro de servicios */
+        .cuadro {
+            border: 1px solid var(--azul-plano);
+            background-color: var(--blanco);
+        }
+
+        .cuadro-fila {
+            display: grid;
+            grid-template-columns: 92px minmax(0, 0.9fr) minmax(0, 1.6fr);
+            gap: 22px;
             align-items: center;
-            gap: 50px;
-            flex-wrap: wrap;
+            padding: 20px 24px;
+            border-bottom: 1px solid var(--linea);
         }
 
-        .about-image {
-            flex: 1;
-            min-width: 300px;
+        .cuadro-fila:last-child {
+            border-bottom: none;
+        }
+
+        .cuadro-sigla {
+            font-family: var(--titulos);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--blanco);
+            background-color: var(--azul-plano);
+            text-align: center;
+            padding: 8px 6px;
+        }
+
+        .cuadro-fila h3 {
+            font-size: 23px;
+            font-weight: 600;
+            color: var(--tinta);
+        }
+
+        .cuadro-fila p {
+            color: var(--tinta-suave);
+        }
+
+        /* Software y DevOps */
+        .software {
+            background-color: var(--blanco);
+            border-top: 1px solid var(--linea);
+            border-bottom: 1px solid var(--linea);
+        }
+
+        .software-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 30px 36px;
+        }
+
+        .software-item {
+            border-top: 3px solid var(--azul-plano);
+            padding-top: 14px;
+        }
+
+        .software-item h3 {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .software-item p {
+            color: var(--tinta-suave);
+        }
+
+        .tecnologias {
+            margin-top: 44px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tecnologias strong {
+            font-family: var(--titulos);
+            font-size: 20px;
+            margin-right: 6px;
+        }
+
+        .tecnologias span {
+            border: 1px solid var(--azul-plano);
+            color: var(--azul-plano);
+            padding: 4px 12px;
+            font-weight: 500;
+            font-size: 15px;
+        }
+
+        /* Acerca */
+        .about-container {
+            display: grid;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 48px;
+            align-items: center;
         }
 
         .about-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .about-content {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-title {
-            font-size: 32px;
-            margin-bottom: 20px;
-            color: var(--dark-color);
+            border: 1px solid var(--linea);
         }
 
         .about-description {
-            margin-bottom: 25px;
-            color: #555;
-            font-size: 16px;
+            margin-bottom: 22px;
+            color: var(--tinta-suave);
+            font-size: 18px;
         }
 
         .about-points {
@@ -300,222 +502,269 @@
         }
 
         .about-points li {
-            margin-bottom: 15px;
-            padding-left: 30px;
+            padding: 9px 0 9px 30px;
             position: relative;
+            border-top: 1px solid var(--linea);
         }
 
         .about-points li::before {
-            content: '✓';
+            content: '';
             position: absolute;
-            left: 0;
-            top: 0;
-            color: var(--success-color);
-            font-weight: bold;
+            left: 4px;
+            top: 17px;
+            width: 12px;
+            height: 7px;
+            border-left: 3px solid var(--verde-sis);
+            border-bottom: 3px solid var(--verde-sis);
+            transform: rotate(-45deg);
         }
 
-        /* Contact Section */
+        /* Contacto */
         .contact {
-            background-color: var(--dark-color);
-            color: white;
+            background-color: var(--azul-plano);
+            color: var(--blanco);
+        }
+
+        .contact .section-title {
+            color: var(--blanco);
+        }
+
+        .contact .section-header p {
+            color: #d6e2ee;
         }
 
         .contact-container {
-            display: flex;
-            gap: 50px;
-            flex-wrap: wrap;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+            gap: 48px;
+            align-items: start;
         }
 
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
+        .contact-list {
+            list-style: none;
         }
 
-        .contact-title {
-            font-size: 28px;
-            margin-bottom: 30px;
-            color: white;
+        .contact-list li {
+            display: grid;
+            grid-template-columns: 130px minmax(0, 1fr);
+            gap: 16px;
+            padding: 16px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .contact-detail {
-            display: flex;
-            margin-bottom: 25px;
-            align-items: center;
+        .contact-list li:last-child {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .contact-icon {
-            margin-right: 15px;
-            background-color: var(--primary-color);
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
+        .contact-list h3 {
+            font-family: var(--texto);
+            font-size: 16px;
+            font-weight: 500;
+            color: #b9cadb;
+            line-height: 1.6;
+        }
+
+        .contact-list a {
+            color: var(--blanco);
+            text-decoration: underline;
+            text-decoration-color: var(--verde-sis);
+            text-decoration-thickness: 2px;
+            text-underline-offset: 4px;
+            overflow-wrap: anywhere;
+        }
+
+        .contact-list a:hover {
+            text-decoration-thickness: 3px;
+        }
+
+        .contact-list p + p {
+            margin-top: 4px;
         }
 
         .qr-code {
-            flex: 1;
-            min-width: 300px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            background-color: var(--blanco);
+            color: var(--tinta);
+            padding: 26px;
+            text-align: center;
         }
 
         .qr-image {
             width: 200px;
             height: 200px;
-            margin-bottom: 20px;
+            margin: 0 auto 16px;
         }
 
         .qr-text {
-            font-size: 18px;
-            text-align: center;
+            margin-bottom: 16px;
         }
 
-        /* Footer */
+        /* Pie de página */
         footer {
-            background-color: #1a1a1a;
-            color: #777;
+            background-color: var(--azul-fondo);
+            color: #b9cadb;
             padding: 30px 0;
-            text-align: center;
+            font-size: 15px;
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
+            flex-wrap: wrap;
+            justify-content: space-between;
             align-items: center;
+            gap: 16px 30px;
         }
 
         .footer-logo {
-            font-size: 24px;
-            color: white;
-            margin-bottom: 20px;
+            font-family: var(--titulos);
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--blanco);
         }
 
         .footer-links {
             display: flex;
+            flex-wrap: wrap;
             list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .footer-links li {
-            margin: 0 15px;
+            gap: 8px 22px;
         }
 
         .footer-links a {
-            color: #777;
+            color: #b9cadb;
             text-decoration: none;
-            transition: color 0.3s ease;
         }
 
         .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        .footer-social {
-            display: flex;
-            list-style: none;
-            margin-bottom: 20px;
-        }
-
-        .footer-social li {
-            margin: 0 10px;
-        }
-
-        .footer-social a {
-            color: #777;
-            font-size: 18px;
-            transition: color 0.3s ease;
-        }
-
-        .footer-social a:hover {
-            color: var(--accent-color);
+            color: var(--blanco);
+            text-decoration: underline;
         }
 
         .footer-text {
-            font-size: 14px;
+            width: 100%;
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            padding-top: 16px;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 40px;
+        /* Pantallas medianas y pequeñas */
+        @media (max-width: 960px) {
+            .hero-grid,
+            .about-container,
+            .contact-container {
+                grid-template-columns: minmax(0, 1fr);
             }
-            .hero p {
-                font-size: 18px;
+
+            .negocios-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .software-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .cuadro-fila {
+                grid-template-columns: 80px minmax(0, 1fr);
+            }
+
+            .cuadro-fila p {
+                grid-column: 2;
             }
         }
 
-        @media (max-width: 768px) {
-            .nav-menu {
-                position: fixed;
-                top: 80px;
-                right: -100%;
-                flex-direction: column;
-                background-color: var(--dark-color);
-                width: 80%;
-                height: calc(100vh - 80px);
-                padding: 20px;
-                transition: right 0.3s ease;
-            }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .nav-menu li {
-                margin: 0 0 20px 0;
-            }
-            
+        @media (max-width: 860px) {
             .nav-toggle {
                 display: block;
             }
-            
-            .hero h1 {
-                font-size: 32px;
+
+            .nav-menu {
+                position: fixed;
+                top: 69px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background-color: var(--azul-fondo);
+                padding: 8px 20px 18px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                display: none;
             }
-            
-            .hero p {
-                font-size: 16px;
+
+            .nav-menu.active {
+                display: flex;
             }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .btn {
-                padding: 10px 20px;
-                font-size: 14px;
+
+            .nav-menu a {
+                display: block;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
             }
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 28px;
+        @media (max-width: 600px) {
+            body {
+                font-size: 16px;
             }
-            
+
+            .logo {
+                font-size: 19px;
+            }
+
+            .hero {
+                padding: 108px 0 56px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
             .section {
                 padding: 60px 0;
             }
-            
-            .section-title {
-                font-size: 24px;
+
+            .negocio {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 14px;
+                padding: 22px;
             }
-            
-            .service-title {
-                font-size: 18px;
+
+            .negocio-icono {
+                width: 60px;
+                height: 60px;
             }
-            
-            .about-title {
-                font-size: 24px;
+
+            .negocio-icono svg {
+                width: 32px;
+                height: 32px;
             }
-            
-            .contact-title {
-                font-size: 24px;
+
+            .software-grid {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .cuadro-fila {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 8px;
+                padding: 18px;
+            }
+
+            .cuadro-sigla {
+                justify-self: start;
+                padding: 4px 14px;
+            }
+
+            .cuadro-fila p {
+                grid-column: 1;
+            }
+
+            .contact-list li {
+                grid-template-columns: minmax(0, 1fr);
+                gap: 2px;
+            }
+
+            .u-detalle {
+                display: none;
+            }
+
+            .u-nombre {
+                font-size: 21px;
             }
         }
     </style>
@@ -524,233 +773,287 @@
     <!-- Header -->
     <header>
         <div class="container">
-            <nav class="navbar">
-                <a href="#" class="logo">SIS <span>/</span> SOLUCIÓN INTEGRAL DE SERVICIO</a>
-                <ul class="nav-menu">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#tecnologias">Tecnologías</a></li>
+            <nav class="navbar" aria-label="Principal">
+                <a href="#inicio" class="logo">SIS <span>/</span> Solución Integral de Servicio</a>
+                <ul class="nav-menu" id="menu">
+                    <li><a href="#negocios">Negocios</a></li>
+                    <li><a href="#ingenieria">Ingeniería</a></li>
+                    <li><a href="#software">Software y DevOps</a></li>
                     <li><a href="#acerca">Acerca de</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
-                <button class="nav-toggle">☰</button>
+                <button class="nav-toggle" aria-label="Abrir menú" aria-controls="menu" aria-expanded="false">☰</button>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Desarrador Full-Stack</h1>
-                <p>"Impulsa tu negocio al siguiente nivel. Transformamos tus ideas en soluciones digitales de alto impacto, diseñadas para generar resultados tangibles. Con tecnologías de vanguardia y un código de calidad superior, te ayudamos a crecer, innovar y destacar en un mercado competitivo."</p>
-                <div class="hero-buttons">
-                    <a href="#servicios" class="btn btn-primary">Nuestros servicios</a>
-                    <a href="#contacto" class="btn btn-outline">Contáctanos</a>
+    <main>
+        <!-- Inicio -->
+        <section id="inicio" class="hero">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <h1>Ingeniería, energía y software para que tu operación no se detenga</h1>
+                    <p>En SIS mantenemos los sistemas que no pueden fallar: redes contra incendio, energía ininterrumpida, climatización de precisión y refrigeración industrial. También desarrollamos software a la medida y cuatro negocios propios.</p>
+                    <div class="hero-buttons">
+                        <a href="#ingenieria" class="btn btn-primary">Ver servicios de ingeniería</a>
+                        <a href="#negocios" class="btn btn-outline">Conocer los negocios</a>
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Services Section -->
-    <section id="servicios" class="section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <p>"Tu visión, nuestra experiencia. Creamos soluciones digitales excepcionales, diseñadas a la medida de tus necesidades y objetivos. Desde la conceptualización hasta el despliegue, nos comprometemos con la excelencia en cada detalle, para que tu negocio brille en el mundo digital."</p>
+                <figure class="unifilar">
+                    <svg viewBox="0 0 520 400" role="img" aria-labelledby="unifilar-titulo">
+                        <title id="unifilar-titulo">Diagrama unifilar con los cinco servicios de ingeniería de SIS: redes contra incendio, SAI y UPS, aires de precisión, refrigeración industrial y software para Schneider APC</title>
+                        <!-- Fuente y barraje -->
+                        <circle cx="62" cy="46" r="24" class="u-linea"/>
+                        <text x="62" y="52" text-anchor="middle" class="u-fuente">SIS</text>
+                        <path d="M62 70 V352" class="u-linea"/>
+                        <path d="M38 46 H20 V78" class="u-tierra"/>
+                        <path d="M9 78 H31 M13 85 H27 M17 92 H23" class="u-tierra"/>
+                        <!-- Ramales -->
+                        <path d="M62 112 H232" class="u-linea u-ramal"/>
+                        <path d="M62 172 H232" class="u-linea u-ramal"/>
+                        <path d="M62 232 H232" class="u-linea u-ramal"/>
+                        <path d="M62 292 H232" class="u-linea u-ramal"/>
+                        <path d="M62 352 H232" class="u-linea u-ramal"/>
+                        <!-- Protecciones y bornes -->
+                        <g>
+                            <circle cx="62" cy="112" r="4.5" class="u-nodo"/><circle cx="62" cy="172" r="4.5" class="u-nodo"/><circle cx="62" cy="232" r="4.5" class="u-nodo"/><circle cx="62" cy="292" r="4.5" class="u-nodo"/><circle cx="62" cy="352" r="4.5" class="u-nodo"/>
+                            <path d="M130 112 l-12 -20 M130 172 l-12 -20 M130 232 l-12 -20 M130 292 l-12 -20 M130 352 l-12 -20" class="u-linea"/>
+                            <circle cx="130" cy="112" r="4.5" class="u-nodo"/><circle cx="130" cy="172" r="4.5" class="u-nodo"/><circle cx="130" cy="232" r="4.5" class="u-nodo"/><circle cx="130" cy="292" r="4.5" class="u-nodo"/><circle cx="130" cy="352" r="4.5" class="u-nodo"/>
+                            <circle cx="238" cy="112" r="6" class="u-linea"/><circle cx="238" cy="172" r="6" class="u-linea"/><circle cx="238" cy="232" r="6" class="u-linea"/><circle cx="238" cy="292" r="6" class="u-linea"/><circle cx="238" cy="352" r="6" class="u-linea"/>
+                        </g>
+                        <!-- Rótulos -->
+                        <text x="258" y="109" class="u-nombre">Redes contra incendio</text>
+                        <text x="258" y="127" class="u-detalle">Sistemas RCI</text>
+                        <text x="258" y="169" class="u-nombre">Energía ininterrumpida</text>
+                        <text x="258" y="187" class="u-detalle">SAI / UPS</text>
+                        <text x="258" y="229" class="u-nombre">Aires de precisión</text>
+                        <text x="258" y="247" class="u-detalle">Centros de datos y cuartos técnicos</text>
+                        <text x="258" y="289" class="u-nombre">Refrigeración industrial</text>
+                        <text x="258" y="307" class="u-detalle">Cuartos fríos y chillers</text>
+                        <text x="258" y="349" class="u-nombre">Software Schneider APC</text>
+                        <text x="258" y="367" class="u-detalle">Desarrollo a la medida</text>
+                    </svg>
+                    <figcaption><span>Diagrama unifilar de servicios</span><span>Bogotá D.C.</span></figcaption>
+                </figure>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>🖥️</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Desarrollo Web Full Stack</h3>
-                        <p>Creamos aplicaciones web completas y personalizadas, desde el diseño de la interfaz hasta la implementación del servidor.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>📱</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Sitios Web Responsivos</h3>
-                        <p>Desarrollamos sitios web que se adaptan perfectamente a todos los dispositivos, garantizando una experiencia de usuario óptima.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>⚙️</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Aplicaciones Web Dinámicas</h3>
-                        <p>Implementamos soluciones web altamente interactivas y dinámicas utilizando frameworks modernos y eficientes.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>🔒</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Seguridad y Optimización</h3>
-                        <p>Garantizamos que tus aplicaciones web sean seguras, rápidas y cumplan con los estándares actuales de la industria.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>🔄</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Mantenimiento y Soporte</h3>
-                        <p>Ofrecemos servicios continuos de mantenimiento y soporte para garantizar que tus aplicaciones funcionen sin problemas.</p>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <span>📊</span>
-                    </div>
-                    <div class="service-content">
-                        <h3 class="service-title">Consultoría Técnica</h3>
-                        <p>Asesoramos sobre las mejores tecnologías y prácticas para tus proyectos, ayudándote a tomar decisiones informadas.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Technologies Section -->
-    <section id="tecnologias" class="section technologies">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Tecnologías que Dominamos</h2>
-                <p>Trabajamos con las tecnologías más avanzadas del mercado</p>
-            </div>
-            <div class="tech-grid">
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <span>🌐</span>
-                    </div>
-                    <h3 class="tech-name">HTML5 / CSS3</h3>
-                    <p>Estructuras web semánticas y estilos modernos</p>
+        <!-- Negocios -->
+        <section id="negocios" class="section negocios">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestros negocios</h2>
+                    <p>Cuatro líneas con un mismo respaldo técnico. Entra a la que necesitas o escríbenos y te orientamos.</p>
                 </div>
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <span>🔄</span>
-                    </div>
-                    <h3 class="tech-name">Node.js</h3>
-                    <p>Entorno de ejecución para JavaScript del lado del servidor</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <span>☕</span>
-                    </div>
-                    <h3 class="tech-name">Java</h3>
-                    <p>Desarrollo de aplicaciones empresariales robustas</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <span>🅰️</span>
-                    </div>
-                    <h3 class="tech-name">Angular</h3>
-                    <p>Framework para aplicaciones web de una sola página</p>
-                </div>
-                <div class="tech-item">
-                    <div class="tech-icon">
-                        <span>🐍</span>
-                    </div>
-                    <h3 class="tech-name">Python</h3>
-                    <p>Desarrollo backend eficiente y análisis de datos</p>
-                </div>
-            </div>
-        </div>
-    </section>
+                <div class="negocios-grid">
+                    <article class="negocio edukarkid">
+                        <div class="negocio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 40 40"><path d="M6 10h11a3 3 0 0 1 3 3v19a3 3 0 0 0-3-3H6z"/><path d="M34 10H23a3 3 0 0 0-3 3v19a3 3 0 0 1 3-3h11z"/><path d="M20 4v2M13 5l1 2M27 5l-1 2"/></svg>
+                        </div>
+                        <div>
+                            <h3>EdukarKid</h3>
+                            <p>Educación interactiva y personalizada para niños, en línea. Cada niño aprende a su ritmo y aprender se vuelve divertido.</p>
+                            <a class="negocio-enlace" href="https://www.edukarkid.com" target="_blank" rel="noopener">Abrir edukarkid.com</a>
+                        </div>
+                    </article>
 
-    <!-- About Section -->
-    <section id="acerca" class="section">
-        <div class="container">
-            <div class="about-container">
-                <div class="about-image">
-                    <img src="EscribiendoCodigo.jpeg" alt="Desarrollo profesional">
+                    <article class="negocio tesla">
+                        <div class="negocio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 40 40"><rect x="9" y="5" width="16" height="30" rx="2"/><path d="M19 12l-5 8h6l-4 8"/><path d="M25 15h4a3 3 0 0 1 3 3v10a2.5 2.5 0 0 1-5 0v-4"/></svg>
+                        </div>
+                        <div>
+                            <h3>Tesla Inovation</h3>
+                            <p>Venta e instalación de cargadores para vehículos eléctricos en Bogotá: hogar a 120 V y 220 V, parqueaderos, comercio y flotas, con soporte técnico.</p>
+                            <a class="negocio-enlace" href="https://tesla-inovation.vercel.app/" target="_blank" rel="noopener">Abrir Tesla Inovation</a>
+                        </div>
+                    </article>
+
+                    <article class="negocio cobertizo">
+                        <div class="negocio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 40 40"><path d="M4 30V20a16 16 0 0 1 32 0v10"/><path d="M11 30v-4l2-5h14l2 5v4z"/><circle cx="15" cy="30" r="2"/><circle cx="25" cy="30" r="2"/><path d="M2 34h36"/></svg>
+                        </div>
+                        <div>
+                            <h3>Cobertizo Inflable</h3>
+                            <p>Cobertizos y cápsulas inflables para proteger carros y motos.</p>
+                            <a class="negocio-enlace" href="https://wa.me/573172698243?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Cobertizo%20Inflable" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+                        </div>
+                    </article>
+
+                    <article class="negocio devops">
+                        <div class="negocio-icono" aria-hidden="true">
+                            <svg viewBox="0 0 40 40"><path d="M13 12l-8 8 8 8M27 12l8 8-8 8M23 8l-6 24"/></svg>
+                        </div>
+                        <div>
+                            <h3>DevOps</h3>
+                            <p>Desarrollo web a la medida y DevOps: del diseño al despliegue, con mantenimiento y soporte continuos.</p>
+                            <a class="negocio-enlace" href="#software">Ver servicios de software</a>
+                        </div>
+                    </article>
                 </div>
-                <div class="about-content">
-                    <h2 class="about-title">¿Por qué elegirnos?</h2>
-                    <p class="about-description">
-                        En SIS nos dedicamos a ofrecer soluciones tecnológicas de calidad, con un enfoque en la excelencia técnica y la satisfacción del cliente. Nuestro compromiso es brindar servicios profesionales que superen sus expectativas.
-                    </p>
-                    <ul class="about-points">
-                        <li>Más de 5 años de experiencia en el sector</li>
-                        <li>Equipo de profesionales altamente cualificados</li>
-                        <li>Metodologías ágiles para un desarrollo eficiente</li>
-                        <li>Soluciones personalizadas a medida</li>
-                        <li>Compromiso con la calidad y el rendimiento</li>
-                        <li>Soporte técnico continuo y mantenimiento</li>
+            </div>
+        </section>
+
+        <!-- Ingeniería -->
+        <section id="ingenieria" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Ingeniería para sistemas críticos</h2>
+                    <p>Instalación, mantenimiento y puesta a punto de los equipos que protegen a las personas, los datos y la cadena de frío.</p>
+                </div>
+                <div class="cuadro">
+                    <div class="cuadro-fila">
+                        <div class="cuadro-sigla">RCI</div>
+                        <h3>Redes contra incendio</h3>
+                        <p>Inspección, mantenimiento y puesta a punto de redes contra incendio y de sistemas de detección y extinción, incluidos los de agente limpio.</p>
+                    </div>
+                    <div class="cuadro-fila">
+                        <div class="cuadro-sigla">SAI</div>
+                        <h3>Energía ininterrumpida</h3>
+                        <p>Instalación, mantenimiento y cambio de baterías de sistemas de alimentación ininterrumpida (SAI/UPS) para cargas críticas.</p>
+                    </div>
+                    <div class="cuadro-fila">
+                        <div class="cuadro-sigla">HVAC</div>
+                        <h3>Aires acondicionados de precisión</h3>
+                        <p>Mantenimiento preventivo y correctivo de equipos de climatización de precisión para centros de datos y cuartos técnicos.</p>
+                    </div>
+                    <div class="cuadro-fila">
+                        <div class="cuadro-sigla">REF</div>
+                        <h3>Refrigeración industrial</h3>
+                        <p>Diagnóstico, reparación y mantenimiento de cuartos fríos, chillers y equipos de refrigeración industrial.</p>
+                    </div>
+                    <div class="cuadro-fila">
+                        <div class="cuadro-sigla">APC</div>
+                        <h3>Software para equipos Schneider APC</h3>
+                        <p>Diseño de software a la medida para equipos Schneider Electric APC: lectura de datos, gestión de alarmas y reportes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Software y DevOps -->
+        <section id="software" class="section software">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Software y DevOps</h2>
+                    <p>Creamos soluciones digitales a la medida de tus necesidades y objetivos, desde la conceptualización hasta el despliegue.</p>
+                </div>
+                <div class="software-grid">
+                    <div class="software-item">
+                        <h3>Desarrollo web full stack</h3>
+                        <p>Aplicaciones web completas y personalizadas, desde el diseño de la interfaz hasta la implementación del servidor.</p>
+                    </div>
+                    <div class="software-item">
+                        <h3>Sitios web responsivos</h3>
+                        <p>Sitios que se adaptan a todos los dispositivos y ofrecen una buena experiencia de uso en cada uno.</p>
+                    </div>
+                    <div class="software-item">
+                        <h3>Aplicaciones web dinámicas</h3>
+                        <p>Soluciones interactivas construidas con frameworks modernos y eficientes.</p>
+                    </div>
+                    <div class="software-item">
+                        <h3>Seguridad y optimización</h3>
+                        <p>Aplicaciones seguras y rápidas, acordes con los estándares actuales de la industria.</p>
+                    </div>
+                    <div class="software-item">
+                        <h3>Mantenimiento y soporte</h3>
+                        <p>Mantenimiento y soporte continuos para que tus aplicaciones funcionen sin problemas.</p>
+                    </div>
+                    <div class="software-item">
+                        <h3>Consultoría técnica</h3>
+                        <p>Asesoría sobre las tecnologías y prácticas adecuadas para tu proyecto, para que decidas con información.</p>
+                    </div>
+                </div>
+                <div class="tecnologias" id="tecnologias">
+                    <strong>Tecnologías</strong>
+                    <span>HTML5 / CSS3</span>
+                    <span>Node.js</span>
+                    <span>Java</span>
+                    <span>Angular</span>
+                    <span>Python</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Acerca de -->
+        <section id="acerca" class="section">
+            <div class="container">
+                <div class="about-container">
+                    <div class="about-image">
+                        <img src="EscribiendoCodigo.jpeg" alt="Desarrollo profesional">
+                    </div>
+                    <div class="about-content">
+                        <h2 class="section-title">¿Por qué elegirnos?</h2>
+                        <p class="about-description">
+                            En SIS nos dedicamos a ofrecer soluciones tecnológicas y de ingeniería de calidad, con un enfoque en la excelencia técnica y la satisfacción del cliente.
+                        </p>
+                        <ul class="about-points">
+                            <li>Más de 5 años de experiencia en el sector</li>
+                            <li>Equipo de profesionales altamente cualificados</li>
+                            <li>Ingeniería y software con un solo proveedor</li>
+                            <li>Soluciones personalizadas a medida</li>
+                            <li>Compromiso con la calidad y el rendimiento</li>
+                            <li>Soporte técnico continuo y mantenimiento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contacto -->
+        <section id="contacto" class="section contact">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Contáctanos</h2>
+                    <p>Cuéntanos qué equipo, sistema o proyecto tienes y te respondemos con el siguiente paso.</p>
+                </div>
+                <div class="contact-container">
+                    <ul class="contact-list">
+                        <li>
+                            <h3>Correo</h3>
+                            <p><a href="mailto:admin@sissolutionsintegralservisce.com">admin@sissolutionsintegralservisce.com</a></p>
+                        </li>
+                        <li>
+                            <h3>Teléfono</h3>
+                            <p><a href="tel:+573172698243">+57 317 269 8243</a></p>
+                        </li>
+                        <li>
+                            <h3>Ubicación</h3>
+                            <p>Bogotá D.C., Colombia</p>
+                        </li>
+                        <li>
+                            <h3>Redes sociales</h3>
+                            <div>
+                                <p><a href="https://www.facebook.com/" target="_blank" rel="noopener">Facebook: @sis.solucion</a></p>
+                                <p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram: @sis.solucion</a></p>
+                                <p><a href="https://www.tiktok.com/es/" target="_blank" rel="noopener">TikTok: @sis.solucion</a></p>
+                            </div>
+                        </li>
                     </ul>
+                    <div class="qr-code">
+                        <div id="qrcode" class="qr-image"></div>
+                        <p class="qr-text">Escanea el código QR para contactarnos por WhatsApp</p>
+                        <a href="https://wa.me/573172698243" class="btn btn-primary" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Contact Section -->
-    <section id="contacto" class="section contact">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Contáctanos</h2>
-                <p>Estamos listos para ayudarte con tu próximo proyecto</p>
-            </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3 class="contact-title">Información de Contacto</h3>
-                    <div class="contact-detail">
-                        <div class="contact-icon">📧</div>
-                        <div>
-                            <h4>Email</h4>
-                            <a href="https://outlook.live.com/mail/0/"><p>admin@sissolutionsintegralservisce.com</p></a>
-                        </div>
-                    </div>
-                    <div class="contact-detail">
-                        <div class="contact-icon">📱</div>
-                        <div>
-                            <h4>Teléfono</h4>
-                            <p>+57 317 269 8243</p>
-                        </div>
-                    </div>
-                    <div class="contact-detail">
-                        <div class="contact-icon">🌐</div>
-                        <div>
-                            <h4>Redes Sociales</h4>
-                            <a href="https://www.facebook.com/"><p>@sis.solucion</p></a>
-                            <a href="https://www.instagram.com/"><p>@sis.solucion</p></a>
-                            <a href="https://www.tiktok.com/es/"><p>@sis.solucion</p></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="qr-code">
-                    <div id="qrcode" class="qr-image"></div>
-                    <p class="qr-text">Escanea el código QR para contactarnos por WhatsApp</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Pie de página -->
     <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">SIS / SOLUCIÓN INTEGRAL DE SERVICIO</div>
                 <ul class="footer-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#tecnologias">Tecnologías</a></li>
+                    <li><a href="#negocios">Negocios</a></li>
+                    <li><a href="#ingenieria">Ingeniería</a></li>
+                    <li><a href="#software">Software y DevOps</a></li>
                     <li><a href="#acerca">Acerca de</a></li>
                     <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="https://github.com/oscar-bermudez-arbelaez" target="_blank" rel="noopener">GitHub</a></li>
                 </ul>
-                <ul class="footer-social">
-                    <li><a href="#">FB</a></li>
-                    <li><a href="#">IG</a></li>
-                    <li><a href="#">LI</a></li>
-                    <li><a href="#">GH</a></li>
-                </ul>
-                <p class="footer-text">&copy; 2025 SIS - Solución Integral de Servicio. Todos los derechos reservados.</p>
+                <p class="footer-text">&copy; 2026 SIS - Solución Integral de Servicio. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -758,73 +1061,44 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
     <script>
-        // Mobile Menu Toggle
+        // Menú móvil
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
-        
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
 
-        // Close menu on click
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const target = document.querySelector(this.getAttribute('href'));
-                
-                if (target) {
-                    window.scrollTo({
-                        top: target.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Generate QR code for WhatsApp
-        new QRCode(document.getElementById("qrcode"), {
-            text: "https://wa.me/573172698243",
-            width: 200,
-            height: 200,
-            colorDark: "#0056b3",
-            colorLight: "#ffffff",
-            correctLevel: QRCode.CorrectLevel.H
-        });
-
-        // Revealing elements on scroll
-        const revealOnScroll = () => {
-            const elements = document.querySelectorAll('.service-card, .tech-item, .about-image, .about-content, .contact-info, .qr-code');
-            
-            elements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementTop < windowHeight - 100) {
-                    element.style.opacity = 1;
-                    element.style.transform = 'translateY(0)';
-                }
-            });
+        const cerrarMenu = () => {
+            navMenu.classList.remove('active');
+            navToggle.setAttribute('aria-expanded', 'false');
+            navToggle.setAttribute('aria-label', 'Abrir menú');
         };
 
-        // Initial reveal and scroll event
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.service-card, .tech-item, .about-image, .about-content, .contact-info, .qr-code').forEach(el => {
-                el.style.opacity = 0;
-                el.style.transform = 'translateY(50px)';
-                el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            });
-            
-            revealOnScroll();
-            window.addEventListener('scroll', revealOnScroll);
+        navToggle.addEventListener('click', () => {
+            const abierto = navMenu.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', String(abierto));
+            navToggle.setAttribute('aria-label', abierto ? 'Cerrar menú' : 'Abrir menú');
         });
+
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', cerrarMenu);
+        });
+
+        document.addEventListener('keydown', evento => {
+            if (evento.key === 'Escape') cerrarMenu();
+        });
+
+        // Código QR para WhatsApp
+        if (window.QRCode) {
+            new QRCode(document.getElementById('qrcode'), {
+                text: 'https://wa.me/573172698243',
+                width: 200,
+                height: 200,
+                colorDark: '#0f2d4a',
+                colorLight: '#ffffff',
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        } else {
+            document.getElementById('qrcode').remove();
+            document.querySelector('.qr-text').textContent = 'Escríbenos por WhatsApp y te respondemos.';
+        }
     </script>
 </body>
 </html>
