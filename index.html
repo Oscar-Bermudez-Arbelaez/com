@@ -3,26 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIS / SOLUCIÓN INTEGRAL DE SERVICIO</title>
+    <title>SIS / Solución Integral de Servicio</title>
     <meta name="description" content="SIS en Bogotá: redes contra incendio, SAI/UPS, aires acondicionados de precisión, refrigeración industrial, software para equipos Schneider APC y los negocios EdukarKid, Tesla Inovation, Cobertizo Inflable y DevOps.">
+    <meta name="color-scheme" content="light dark">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --azul-plano: #0f2d4a;
-            --azul-fondo: #0a2239;
-            --papel: #f5f7fa;
-            --tinta: #17212b;
-            --tinta-suave: #4a5866;
-            --verde-sis: #00a651;
-            --verde-oscuro: #008742;
-            --cian-linea: #2bb3d9;
-            --ambar: #f2a900;
-            --linea: #d5dde6;
-            --blanco: #ffffff;
-            --titulos: 'Barlow Semi Condensed', 'Arial Narrow', Arial, sans-serif;
-            --texto: 'Barlow', 'Segoe UI', Tahoma, Arial, sans-serif;
+            --fondo: #ffffff;
+            --fondo-alt: #f5f5f7;
+            --texto: #1d1d1f;
+            --texto-2: #6e6e73;
+            --linea: #d2d2d7;
+            --acento: #0a7a40;
+            --acento-texto: #0a7a40;
+            --oscuro: #101214;
+            --barra: rgba(255, 255, 255, 0.78);
+            --radio: 18px;
+            --fuente: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --fondo: #000000;
+                --fondo-alt: #111113;
+                --texto: #f5f5f7;
+                --texto-2: #a1a1a6;
+                --linea: #38383a;
+                --acento-texto: #35c475;
+                --barra: rgba(18, 18, 20, 0.78);
+            }
         }
 
         * {
@@ -33,21 +44,24 @@
 
         html {
             scroll-behavior: smooth;
+            -webkit-text-size-adjust: 100%;
         }
 
         body {
-            font-family: var(--texto);
-            font-size: 17px;
-            line-height: 1.6;
-            color: var(--tinta);
-            background-color: var(--papel);
+            font-family: var(--fuente);
+            font-size: 1.0625rem;
+            line-height: 1.55;
+            color: var(--texto);
+            background-color: var(--fondo);
+            -webkit-font-smoothing: antialiased;
         }
 
         section[id] {
-            scroll-margin-top: 72px;
+            scroll-margin-top: 56px;
         }
 
-        img {
+        img,
+        video {
             max-width: 100%;
             display: block;
         }
@@ -57,159 +71,185 @@
         }
 
         a:focus-visible,
-        button:focus-visible {
-            outline: 3px solid var(--ambar);
+        button:focus-visible,
+        video:focus-visible {
+            outline: 3px solid var(--acento-texto);
             outline-offset: 3px;
+            border-radius: 4px;
         }
 
         .container {
             width: 100%;
-            max-width: 1160px;
+            max-width: 1120px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         h1, h2, h3 {
-            font-family: var(--titulos);
-            line-height: 1.12;
-            letter-spacing: -0.005em;
+            font-weight: 600;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        /* Header */
+        /* Barra superior */
         header {
-            background-color: var(--azul-fondo);
-            color: var(--blanco);
             position: fixed;
-            width: 100%;
             top: 0;
+            width: 100%;
             z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            background-color: var(--barra);
+            -webkit-backdrop-filter: saturate(180%) blur(20px);
+            backdrop-filter: saturate(180%) blur(20px);
+            border-bottom: 1px solid var(--linea);
         }
 
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            min-height: 68px;
+            min-height: 56px;
             gap: 20px;
         }
 
         .logo {
-            font-family: var(--titulos);
-            font-size: 22px;
-            font-weight: 700;
-            color: var(--blanco);
+            font-size: 1.0625rem;
+            font-weight: 600;
             text-decoration: none;
-            line-height: 1.1;
+            letter-spacing: -0.01em;
         }
 
         .logo span {
-            color: var(--verde-sis);
-        }
-
-        .logo small {
-            display: block;
-            font-family: var(--texto);
-            font-size: 12px;
             font-weight: 400;
-            color: #b9cadb;
+            color: var(--texto-2);
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 26px;
+            gap: 28px;
         }
 
         .nav-menu a {
-            color: var(--blanco);
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            font-size: 0.875rem;
             text-decoration: none;
-            font-weight: 500;
-            font-size: 16px;
-            padding: 6px 0;
-            border-bottom: 2px solid transparent;
+            color: var(--texto);
+            opacity: 0.86;
         }
 
         .nav-menu a:hover {
-            border-bottom-color: var(--verde-sis);
+            opacity: 1;
+            color: var(--acento-texto);
         }
 
         .nav-toggle {
             display: none;
+            width: 44px;
+            height: 44px;
             background: none;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 4px;
-            color: var(--blanco);
-            font-size: 22px;
+            border: none;
+            color: var(--texto);
+            font-size: 1.375rem;
             line-height: 1;
-            padding: 6px 10px;
             cursor: pointer;
         }
 
-        /* Botones */
+        /* Botones y enlaces */
         .btn {
-            display: inline-block;
-            padding: 13px 24px;
-            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 48px;
+            padding: 0 26px;
+            border-radius: 999px;
+            font-family: var(--fuente);
+            font-size: 1.0625rem;
+            font-weight: 500;
             text-decoration: none;
-            font-family: var(--texto);
-            font-weight: 600;
-            font-size: 16px;
-            border: 2px solid transparent;
+            border: 1px solid transparent;
             cursor: pointer;
         }
 
         .btn-primary {
-            background-color: var(--verde-sis);
-            color: var(--blanco);
-            border-color: var(--verde-sis);
+            background-color: var(--acento);
+            color: #ffffff;
         }
 
         .btn-primary:hover {
-            background-color: var(--verde-oscuro);
-            border-color: var(--verde-oscuro);
+            background-color: #086535;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--blanco);
-            border-color: rgba(255, 255, 255, 0.6);
+        .btn-claro {
+            color: #ffffff;
+            border-color: rgba(255, 255, 255, 0.7);
         }
 
-        .btn-outline:hover {
-            border-color: var(--blanco);
-            background-color: rgba(255, 255, 255, 0.08);
+        .btn-claro:hover {
+            background-color: rgba(255, 255, 255, 0.14);
+            border-color: #ffffff;
+        }
+
+        .enlace {
+            color: var(--acento-texto);
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .enlace:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
         }
 
         /* Inicio */
         .hero {
-            background-color: var(--azul-plano);
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-            background-size: 32px 32px;
-            color: var(--blanco);
-            padding: 132px 0 76px;
+            position: relative;
+            min-height: min(100vh, 880px);
+            display: flex;
+            align-items: flex-end;
+            color: #ffffff;
+            background-color: var(--oscuro);
+            overflow: hidden;
         }
 
-        .hero-grid {
-            display: grid;
-            grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-            gap: 48px;
-            align-items: center;
+        .hero-foto {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 40%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(8, 10, 12, 0.35) 0%, rgba(8, 10, 12, 0.2) 35%, rgba(8, 10, 12, 0.86) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            padding-top: 140px;
+            padding-bottom: 72px;
         }
 
         .hero h1 {
-            font-size: clamp(36px, 5.2vw, 60px);
+            font-size: clamp(2.5rem, 6.4vw, 4.75rem);
             font-weight: 700;
+            letter-spacing: -0.03em;
+            max-width: 15em;
             margin-bottom: 22px;
         }
 
         .hero p {
-            font-size: 19px;
-            color: #d6e2ee;
-            max-width: 34em;
-            margin-bottom: 30px;
+            font-size: clamp(1.125rem, 1.7vw, 1.375rem);
+            line-height: 1.45;
+            max-width: 36em;
+            color: rgba(255, 255, 255, 0.92);
+            margin-bottom: 32px;
         }
 
         .hero-buttons {
@@ -218,392 +258,352 @@
             gap: 14px;
         }
 
-        .unifilar {
-            border: 1px solid rgba(255, 255, 255, 0.28);
-            background-color: rgba(10, 34, 57, 0.55);
-        }
-
-        .unifilar svg {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .unifilar figcaption {
-            border-top: 1px solid rgba(255, 255, 255, 0.28);
-            padding: 9px 14px;
-            font-size: 14px;
-            color: #b9cadb;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-        }
-
-        .u-linea {
-            stroke: var(--cian-linea);
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-        }
-
-        .u-nodo {
-            fill: var(--cian-linea);
-        }
-
-        .u-tierra {
-            stroke: var(--verde-sis);
-            stroke-width: 2.5;
-            fill: none;
-            stroke-linecap: round;
-        }
-
-        .u-nombre {
-            font-family: var(--titulos);
-            font-size: 19px;
-            font-weight: 600;
-            fill: var(--blanco);
-        }
-
-        .u-detalle {
-            font-family: var(--texto);
-            font-size: 13.5px;
-            fill: #b9cadb;
-        }
-
-        .u-fuente {
-            font-family: var(--titulos);
-            font-size: 17px;
-            font-weight: 700;
-            fill: var(--blanco);
-        }
-
-        @media (prefers-reduced-motion: no-preference) {
-            .u-ramal {
-                stroke-dasharray: 240;
-                stroke-dashoffset: 240;
-                animation: energizar 0.7s ease-out forwards;
-            }
-
-            .u-ramal:nth-of-type(2) { animation-delay: 0.12s; }
-            .u-ramal:nth-of-type(3) { animation-delay: 0.24s; }
-            .u-ramal:nth-of-type(4) { animation-delay: 0.36s; }
-            .u-ramal:nth-of-type(5) { animation-delay: 0.48s; }
-
-            @keyframes energizar {
-                to { stroke-dashoffset: 0; }
-            }
-        }
-
         /* Secciones */
         .section {
-            padding: 88px 0;
+            padding: 112px 0;
+        }
+
+        .section-alt {
+            background-color: var(--fondo-alt);
         }
 
         .section-header {
-            max-width: 760px;
-            margin-bottom: 44px;
+            max-width: 720px;
+            margin-bottom: 56px;
         }
 
         .section-title {
-            font-size: clamp(30px, 3.6vw, 42px);
-            font-weight: 700;
-            color: var(--azul-plano);
-            margin-bottom: 14px;
+            font-size: clamp(2rem, 4.2vw, 3rem);
+            margin-bottom: 16px;
         }
 
         .section-header p {
-            color: var(--tinta-suave);
-            font-size: 18px;
+            font-size: 1.25rem;
+            line-height: 1.45;
+            color: var(--texto-2);
+        }
+
+        /* Ingeniería */
+        .servicios {
+            border-top: 1px solid var(--linea);
+        }
+
+        .servicio {
+            display: grid;
+            grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+            gap: 40px;
+            padding: 30px 0;
+            border-bottom: 1px solid var(--linea);
+        }
+
+        .servicio h3 {
+            font-size: 1.5rem;
+        }
+
+        .servicio p {
+            color: var(--texto-2);
+        }
+
+        /* Trabajo en campo */
+        .grupo {
+            margin-top: 72px;
+        }
+
+        .grupo:first-of-type {
+            margin-top: 0;
+        }
+
+        .grupo-titulo {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 6px 24px;
+            margin-bottom: 22px;
+        }
+
+        .grupo-titulo h3 {
+            font-size: 1.75rem;
+        }
+
+        .grupo-titulo p {
+            color: var(--texto-2);
+        }
+
+        .galeria {
+            display: grid;
+            gap: 16px;
+        }
+
+        .galeria figure {
+            margin: 0;
+            min-width: 0;
+        }
+
+        .marco {
+            border-radius: var(--radio);
+            overflow: hidden;
+            background-color: var(--fondo);
+        }
+
+        .marco img,
+        .marco video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .galeria figcaption {
+            padding: 10px 4px 0;
+            font-size: 0.875rem;
+            line-height: 1.4;
+            color: var(--texto-2);
+        }
+
+        .galeria-clima {
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            grid-template-rows: auto auto;
+        }
+
+        .galeria-clima .principal {
+            grid-row: span 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .galeria-clima .principal .marco {
+            flex: 1;
+        }
+
+        .galeria-clima figure:not(.principal) .marco {
+            aspect-ratio: 4 / 3;
+        }
+
+        .galeria-frio {
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+
+        .galeria-frio .marco {
+            aspect-ratio: 16 / 10;
+        }
+
+        .galeria-carga {
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .galeria-carga .marco {
+            aspect-ratio: 3 / 4;
+        }
+
+        .galeria-maquinas {
+            grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+            grid-template-rows: auto auto;
+        }
+
+        .galeria-maquinas .vertical {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .galeria-maquinas .vertical .marco {
+            flex: 1;
+            background-color: #000000;
+        }
+
+        .galeria-maquinas .horizontal .marco {
+            aspect-ratio: 16 / 9;
+            background-color: #000000;
+        }
+
+        .galeria-maquinas .apoyo .marco {
+            aspect-ratio: 16 / 9;
         }
 
         /* Negocios */
-        .negocios {
-            background-color: var(--blanco);
-            border-bottom: 1px solid var(--linea);
-        }
-
         .negocios-grid {
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 22px;
+            gap: 20px;
         }
 
         .negocio {
-            display: grid;
-            grid-template-columns: 76px minmax(0, 1fr);
-            gap: 20px;
-            padding: 26px;
-            background-color: var(--papel);
-            border: 1px solid var(--linea);
-            border-left: 6px solid var(--marca);
-        }
-
-        .negocio-icono {
-            width: 76px;
-            height: 76px;
-            border-radius: 50%;
-            background-color: var(--marca);
             display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .negocio-icono svg {
-            width: 40px;
-            height: 40px;
-            stroke: var(--blanco);
-            stroke-width: 2;
-            fill: none;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 40px;
+            border-radius: 24px;
+            background-color: var(--fondo-alt);
         }
 
         .negocio h3 {
-            font-size: 27px;
-            font-weight: 700;
-            color: var(--tinta);
-            margin-bottom: 8px;
+            font-size: 1.75rem;
+            margin-bottom: 10px;
         }
 
         .negocio p {
-            color: var(--tinta-suave);
-            margin-bottom: 14px;
+            color: var(--texto-2);
+            margin-bottom: 22px;
         }
 
-        .negocio-enlace {
-            font-weight: 600;
-            color: var(--azul-plano);
-            text-decoration: underline;
-            text-decoration-color: var(--marca);
-            text-decoration-thickness: 2px;
-            text-underline-offset: 4px;
-        }
-
-        .negocio-enlace:hover {
-            color: var(--tinta);
-            text-decoration-thickness: 3px;
-        }
-
-        .edukarkid { --marca: #e8590c; }
-        .tesla { --marca: #c9252d; }
-        .cobertizo { --marca: #00a651; }
-        .devops { --marca: #3d5bd9; }
-
-        /* Ingeniería: cuadro de servicios */
-        .cuadro {
-            border: 1px solid var(--azul-plano);
-            background-color: var(--blanco);
-        }
-
-        .cuadro-fila {
-            display: grid;
-            grid-template-columns: 92px minmax(0, 0.9fr) minmax(0, 1.6fr);
-            gap: 22px;
+        .negocio .enlace {
+            margin-top: auto;
+            display: inline-flex;
             align-items: center;
-            padding: 20px 24px;
-            border-bottom: 1px solid var(--linea);
-        }
-
-        .cuadro-fila:last-child {
-            border-bottom: none;
-        }
-
-        .cuadro-sigla {
-            font-family: var(--titulos);
-            font-weight: 700;
-            font-size: 20px;
-            color: var(--blanco);
-            background-color: var(--azul-plano);
-            text-align: center;
-            padding: 8px 6px;
-        }
-
-        .cuadro-fila h3 {
-            font-size: 23px;
-            font-weight: 600;
-            color: var(--tinta);
-        }
-
-        .cuadro-fila p {
-            color: var(--tinta-suave);
+            min-height: 44px;
         }
 
         /* Software y DevOps */
-        .software {
-            background-color: var(--blanco);
-            border-top: 1px solid var(--linea);
-            border-bottom: 1px solid var(--linea);
-        }
-
         .software-grid {
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
-            gap: 30px 36px;
-        }
-
-        .software-item {
-            border-top: 3px solid var(--azul-plano);
-            padding-top: 14px;
+            gap: 36px 40px;
         }
 
         .software-item h3 {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 6px;
+            font-size: 1.25rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 8px;
         }
 
         .software-item p {
-            color: var(--tinta-suave);
+            color: var(--texto-2);
         }
 
         .tecnologias {
-            margin-top: 44px;
+            margin-top: 56px;
+            padding-top: 28px;
+            border-top: 1px solid var(--linea);
             display: flex;
             flex-wrap: wrap;
             align-items: center;
-            gap: 10px;
+            gap: 10px 12px;
         }
 
         .tecnologias strong {
-            font-family: var(--titulos);
-            font-size: 20px;
-            margin-right: 6px;
+            font-weight: 600;
+            margin-right: 8px;
         }
 
         .tecnologias span {
-            border: 1px solid var(--azul-plano);
-            color: var(--azul-plano);
-            padding: 4px 12px;
-            font-weight: 500;
-            font-size: 15px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background-color: var(--fondo);
+            border: 1px solid var(--linea);
+            font-size: 0.875rem;
         }
 
         /* Acerca */
         .about-container {
             display: grid;
             grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-            gap: 48px;
+            gap: 64px;
             align-items: center;
         }
 
-        .about-image img {
-            width: 100%;
-            border: 1px solid var(--linea);
+        .about-image .marco {
+            aspect-ratio: 1 / 1;
         }
 
         .about-description {
-            margin-bottom: 22px;
-            color: var(--tinta-suave);
-            font-size: 18px;
+            font-size: 1.25rem;
+            line-height: 1.45;
+            color: var(--texto-2);
+            margin-bottom: 28px;
         }
 
         .about-points {
             list-style: none;
-        }
-
-        .about-points li {
-            padding: 9px 0 9px 30px;
-            position: relative;
             border-top: 1px solid var(--linea);
         }
 
-        .about-points li::before {
-            content: '';
-            position: absolute;
-            left: 4px;
-            top: 17px;
-            width: 12px;
-            height: 7px;
-            border-left: 3px solid var(--verde-sis);
-            border-bottom: 3px solid var(--verde-sis);
-            transform: rotate(-45deg);
+        .about-points li {
+            padding: 14px 0;
+            border-bottom: 1px solid var(--linea);
         }
 
         /* Contacto */
         .contact {
-            background-color: var(--azul-plano);
-            color: var(--blanco);
-        }
-
-        .contact .section-title {
-            color: var(--blanco);
+            background-color: var(--oscuro);
+            color: #f5f5f7;
         }
 
         .contact .section-header p {
-            color: #d6e2ee;
+            color: #a1a1a6;
         }
 
         .contact-container {
             display: grid;
             grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
-            gap: 48px;
+            gap: 64px;
             align-items: start;
         }
 
         .contact-list {
             list-style: none;
+            border-top: 1px solid #38383a;
         }
 
         .contact-list li {
             display: grid;
-            grid-template-columns: 130px minmax(0, 1fr);
+            grid-template-columns: 150px minmax(0, 1fr);
             gap: 16px;
-            padding: 16px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .contact-list li:last-child {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 18px 0;
+            border-bottom: 1px solid #38383a;
         }
 
         .contact-list h3 {
-            font-family: var(--texto);
-            font-size: 16px;
-            font-weight: 500;
-            color: #b9cadb;
-            line-height: 1.6;
+            font-size: 1.0625rem;
+            font-weight: 400;
+            line-height: 1.55;
+            letter-spacing: 0;
+            color: #a1a1a6;
         }
 
         .contact-list a {
-            color: var(--blanco);
+            color: #f5f5f7;
             text-decoration: underline;
-            text-decoration-color: var(--verde-sis);
-            text-decoration-thickness: 2px;
+            text-decoration-color: #35c475;
+            text-decoration-thickness: 1px;
             text-underline-offset: 4px;
             overflow-wrap: anywhere;
         }
 
         .contact-list a:hover {
-            text-decoration-thickness: 3px;
+            color: #35c475;
         }
 
         .contact-list p + p {
-            margin-top: 4px;
+            margin-top: 6px;
         }
 
         .qr-code {
-            background-color: var(--blanco);
-            color: var(--tinta);
-            padding: 26px;
+            background-color: #ffffff;
+            color: #1d1d1f;
+            padding: 32px;
+            border-radius: 24px;
             text-align: center;
         }
 
         .qr-image {
             width: 200px;
             height: 200px;
-            margin: 0 auto 16px;
+            margin: 0 auto 18px;
         }
 
         .qr-text {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
+            color: #6e6e73;
         }
 
         /* Pie de página */
         footer {
-            background-color: var(--azul-fondo);
-            color: #b9cadb;
-            padding: 30px 0;
-            font-size: 15px;
+            background-color: var(--oscuro);
+            color: #a1a1a6;
+            padding: 28px 0 36px;
+            font-size: 0.8125rem;
+            border-top: 1px solid #38383a;
         }
 
         .footer-content {
@@ -611,79 +611,68 @@
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
-            gap: 16px 30px;
-        }
-
-        .footer-logo {
-            font-family: var(--titulos);
-            font-size: 20px;
-            font-weight: 700;
-            color: var(--blanco);
+            gap: 12px 30px;
         }
 
         .footer-links {
             display: flex;
             flex-wrap: wrap;
             list-style: none;
-            gap: 8px 22px;
+            gap: 4px 22px;
         }
 
         .footer-links a {
-            color: #b9cadb;
+            display: inline-flex;
+            align-items: center;
+            min-height: 44px;
+            color: #a1a1a6;
             text-decoration: none;
         }
 
         .footer-links a:hover {
-            color: var(--blanco);
-            text-decoration: underline;
-        }
-
-        .footer-text {
-            width: 100%;
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
-            padding-top: 16px;
+            color: #f5f5f7;
         }
 
         /* Pantallas medianas y pequeñas */
-        @media (max-width: 960px) {
-            .hero-grid,
+        @media (max-width: 900px) {
+            .section {
+                padding: 84px 0;
+            }
+
+            .servicio,
             .about-container,
             .contact-container {
                 grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
             }
 
-            .negocios-grid {
-                grid-template-columns: minmax(0, 1fr);
+            .about-container,
+            .contact-container {
+                gap: 44px;
             }
 
             .software-grid {
                 grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .cuadro-fila {
-                grid-template-columns: 80px minmax(0, 1fr);
+            .galeria-carga {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
             }
 
-            .cuadro-fila p {
-                grid-column: 2;
-            }
-        }
-
-        @media (max-width: 860px) {
             .nav-toggle {
                 display: block;
             }
 
             .nav-menu {
                 position: fixed;
-                top: 69px;
+                top: 57px;
                 left: 0;
                 right: 0;
                 flex-direction: column;
                 gap: 0;
-                background-color: var(--azul-fondo);
-                padding: 8px 20px 18px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 4px 24px 16px;
+                background-color: var(--fondo);
+                border-bottom: 1px solid var(--linea);
                 display: none;
             }
 
@@ -691,94 +680,83 @@
                 display: flex;
             }
 
+            .nav-menu li + li {
+                border-top: 1px solid var(--linea);
+            }
+
             .nav-menu a {
-                display: block;
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+                display: flex;
+                min-height: 48px;
+                font-size: 1.0625rem;
+                opacity: 1;
             }
         }
 
-        @media (max-width: 600px) {
-            body {
-                font-size: 16px;
-            }
-
-            .logo {
-                font-size: 19px;
-            }
-
-            .hero {
-                padding: 108px 0 56px;
-            }
-
-            .hero p {
-                font-size: 17px;
+        @media (max-width: 640px) {
+            .container {
+                padding: 0 20px;
             }
 
             .section {
-                padding: 60px 0;
+                padding: 64px 0;
+            }
+
+            .section-header {
+                margin-bottom: 36px;
+            }
+
+            .hero-content {
+                padding-bottom: 48px;
+            }
+
+            .negocios-grid,
+            .software-grid,
+            .galeria-clima,
+            .galeria-frio,
+            .galeria-maquinas {
+                grid-template-columns: minmax(0, 1fr);
+            }
+
+            .galeria-clima .principal .marco {
+                aspect-ratio: 4 / 3;
+            }
+
+            .galeria-maquinas .vertical {
+                grid-column: 1;
+                grid-row: auto;
+            }
+
+            .galeria-maquinas .vertical .marco {
+                aspect-ratio: 9 / 16;
+                max-height: 80vh;
             }
 
             .negocio {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 14px;
-                padding: 22px;
+                padding: 30px 26px;
             }
 
-            .negocio-icono {
-                width: 60px;
-                height: 60px;
-            }
-
-            .negocio-icono svg {
-                width: 32px;
-                height: 32px;
-            }
-
-            .software-grid {
-                grid-template-columns: minmax(0, 1fr);
-            }
-
-            .cuadro-fila {
-                grid-template-columns: minmax(0, 1fr);
-                gap: 8px;
-                padding: 18px;
-            }
-
-            .cuadro-sigla {
-                justify-self: start;
-                padding: 4px 14px;
-            }
-
-            .cuadro-fila p {
-                grid-column: 1;
+            .grupo {
+                margin-top: 56px;
             }
 
             .contact-list li {
                 grid-template-columns: minmax(0, 1fr);
                 gap: 2px;
             }
-
-            .u-detalle {
-                display: none;
-            }
-
-            .u-nombre {
-                font-size: 21px;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Barra superior -->
     <header>
         <div class="container">
             <nav class="navbar" aria-label="Principal">
-                <a href="#inicio" class="logo">SIS <span>/</span> Solución Integral de Servicio</a>
+                <a href="#inicio" class="logo">SIS <span>Solución Integral de Servicio</span></a>
                 <ul class="nav-menu" id="menu">
-                    <li><a href="#negocios">Negocios</a></li>
                     <li><a href="#ingenieria">Ingeniería</a></li>
-                    <li><a href="#software">Software y DevOps</a></li>
+                    <li><a href="#trabajos">Trabajos</a></li>
+                    <li><a href="#negocios">Negocios</a></li>
+                    <li><a href="#software">Software</a></li>
                     <li><a href="#acerca">Acerca de</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
@@ -790,106 +768,13 @@
     <main>
         <!-- Inicio -->
         <section id="inicio" class="hero">
-            <div class="container hero-grid">
-                <div class="hero-content">
-                    <h1>Ingeniería, energía y software para que tu operación no se detenga</h1>
-                    <p>En SIS mantenemos los sistemas que no pueden fallar: redes contra incendio, energía ininterrumpida, climatización de precisión y refrigeración industrial. También desarrollamos software a la medida y cuatro negocios propios.</p>
-                    <div class="hero-buttons">
-                        <a href="#ingenieria" class="btn btn-primary">Ver servicios de ingeniería</a>
-                        <a href="#negocios" class="btn btn-outline">Conocer los negocios</a>
-                    </div>
-                </div>
-
-                <figure class="unifilar">
-                    <svg viewBox="0 0 520 400" role="img" aria-labelledby="unifilar-titulo">
-                        <title id="unifilar-titulo">Diagrama unifilar con los cinco servicios de ingeniería de SIS: redes contra incendio, SAI y UPS, aires de precisión, refrigeración industrial y software para Schneider APC</title>
-                        <!-- Fuente y barraje -->
-                        <circle cx="62" cy="46" r="24" class="u-linea"/>
-                        <text x="62" y="52" text-anchor="middle" class="u-fuente">SIS</text>
-                        <path d="M62 70 V352" class="u-linea"/>
-                        <path d="M38 46 H20 V78" class="u-tierra"/>
-                        <path d="M9 78 H31 M13 85 H27 M17 92 H23" class="u-tierra"/>
-                        <!-- Ramales -->
-                        <path d="M62 112 H232" class="u-linea u-ramal"/>
-                        <path d="M62 172 H232" class="u-linea u-ramal"/>
-                        <path d="M62 232 H232" class="u-linea u-ramal"/>
-                        <path d="M62 292 H232" class="u-linea u-ramal"/>
-                        <path d="M62 352 H232" class="u-linea u-ramal"/>
-                        <!-- Protecciones y bornes -->
-                        <g>
-                            <circle cx="62" cy="112" r="4.5" class="u-nodo"/><circle cx="62" cy="172" r="4.5" class="u-nodo"/><circle cx="62" cy="232" r="4.5" class="u-nodo"/><circle cx="62" cy="292" r="4.5" class="u-nodo"/><circle cx="62" cy="352" r="4.5" class="u-nodo"/>
-                            <path d="M130 112 l-12 -20 M130 172 l-12 -20 M130 232 l-12 -20 M130 292 l-12 -20 M130 352 l-12 -20" class="u-linea"/>
-                            <circle cx="130" cy="112" r="4.5" class="u-nodo"/><circle cx="130" cy="172" r="4.5" class="u-nodo"/><circle cx="130" cy="232" r="4.5" class="u-nodo"/><circle cx="130" cy="292" r="4.5" class="u-nodo"/><circle cx="130" cy="352" r="4.5" class="u-nodo"/>
-                            <circle cx="238" cy="112" r="6" class="u-linea"/><circle cx="238" cy="172" r="6" class="u-linea"/><circle cx="238" cy="232" r="6" class="u-linea"/><circle cx="238" cy="292" r="6" class="u-linea"/><circle cx="238" cy="352" r="6" class="u-linea"/>
-                        </g>
-                        <!-- Rótulos -->
-                        <text x="258" y="109" class="u-nombre">Redes contra incendio</text>
-                        <text x="258" y="127" class="u-detalle">Sistemas RCI</text>
-                        <text x="258" y="169" class="u-nombre">Energía ininterrumpida</text>
-                        <text x="258" y="187" class="u-detalle">SAI / UPS</text>
-                        <text x="258" y="229" class="u-nombre">Aires de precisión</text>
-                        <text x="258" y="247" class="u-detalle">Centros de datos y cuartos técnicos</text>
-                        <text x="258" y="289" class="u-nombre">Refrigeración industrial</text>
-                        <text x="258" y="307" class="u-detalle">Cuartos fríos y chillers</text>
-                        <text x="258" y="349" class="u-nombre">Software Schneider APC</text>
-                        <text x="258" y="367" class="u-detalle">Desarrollo a la medida</text>
-                    </svg>
-                    <figcaption><span>Diagrama unifilar de servicios</span><span>Bogotá D.C.</span></figcaption>
-                </figure>
-            </div>
-        </section>
-
-        <!-- Negocios -->
-        <section id="negocios" class="section negocios">
-            <div class="container">
-                <div class="section-header">
-                    <h2 class="section-title">Nuestros negocios</h2>
-                    <p>Cuatro líneas con un mismo respaldo técnico. Entra a la que necesitas o escríbenos y te orientamos.</p>
-                </div>
-                <div class="negocios-grid">
-                    <article class="negocio edukarkid">
-                        <div class="negocio-icono" aria-hidden="true">
-                            <svg viewBox="0 0 40 40"><path d="M6 10h11a3 3 0 0 1 3 3v19a3 3 0 0 0-3-3H6z"/><path d="M34 10H23a3 3 0 0 0-3 3v19a3 3 0 0 1 3-3h11z"/><path d="M20 4v2M13 5l1 2M27 5l-1 2"/></svg>
-                        </div>
-                        <div>
-                            <h3>EdukarKid</h3>
-                            <p>Educación interactiva y personalizada para niños, en línea. Cada niño aprende a su ritmo y aprender se vuelve divertido.</p>
-                            <a class="negocio-enlace" href="https://www.edukarkid.com" target="_blank" rel="noopener">Abrir edukarkid.com</a>
-                        </div>
-                    </article>
-
-                    <article class="negocio tesla">
-                        <div class="negocio-icono" aria-hidden="true">
-                            <svg viewBox="0 0 40 40"><rect x="9" y="5" width="16" height="30" rx="2"/><path d="M19 12l-5 8h6l-4 8"/><path d="M25 15h4a3 3 0 0 1 3 3v10a2.5 2.5 0 0 1-5 0v-4"/></svg>
-                        </div>
-                        <div>
-                            <h3>Tesla Inovation</h3>
-                            <p>Venta e instalación de cargadores para vehículos eléctricos en Bogotá: hogar a 120 V y 220 V, parqueaderos, comercio y flotas, con soporte técnico.</p>
-                            <a class="negocio-enlace" href="https://tesla-inovation.vercel.app/" target="_blank" rel="noopener">Abrir Tesla Inovation</a>
-                        </div>
-                    </article>
-
-                    <article class="negocio cobertizo">
-                        <div class="negocio-icono" aria-hidden="true">
-                            <svg viewBox="0 0 40 40"><path d="M4 30V20a16 16 0 0 1 32 0v10"/><path d="M11 30v-4l2-5h14l2 5v4z"/><circle cx="15" cy="30" r="2"/><circle cx="25" cy="30" r="2"/><path d="M2 34h36"/></svg>
-                        </div>
-                        <div>
-                            <h3>Cobertizo Inflable</h3>
-                            <p>Cobertizos y cápsulas inflables para proteger carros y motos.</p>
-                            <a class="negocio-enlace" href="https://wa.me/573172698243?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Cobertizo%20Inflable" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
-                        </div>
-                    </article>
-
-                    <article class="negocio devops">
-                        <div class="negocio-icono" aria-hidden="true">
-                            <svg viewBox="0 0 40 40"><path d="M13 12l-8 8 8 8M27 12l8 8-8 8M23 8l-6 24"/></svg>
-                        </div>
-                        <div>
-                            <h3>DevOps</h3>
-                            <p>Desarrollo web a la medida y DevOps: del diseño al despliegue, con mantenimiento y soporte continuos.</p>
-                            <a class="negocio-enlace" href="#software">Ver servicios de software</a>
-                        </div>
-                    </article>
+            <img class="hero-foto" src="media/condensadoras-cubierta.jpg" width="2000" height="1500" alt="Condensadoras de climatización de precisión instaladas en una cubierta, con la ciudad de Bogotá al fondo">
+            <div class="container hero-content">
+                <h1>Ingeniería para los sistemas que no pueden detenerse.</h1>
+                <p>Redes contra incendio, energía ininterrumpida, climatización de precisión y refrigeración industrial, con software a la medida. En Bogotá y en sitio.</p>
+                <div class="hero-buttons">
+                    <a href="#ingenieria" class="btn btn-primary">Ver servicios</a>
+                    <a href="#trabajos" class="btn btn-claro">Ver trabajos en campo</a>
                 </div>
             </div>
         </section>
@@ -901,29 +786,24 @@
                     <h2 class="section-title">Ingeniería para sistemas críticos</h2>
                     <p>Instalación, mantenimiento y puesta a punto de los equipos que protegen a las personas, los datos y la cadena de frío.</p>
                 </div>
-                <div class="cuadro">
-                    <div class="cuadro-fila">
-                        <div class="cuadro-sigla">RCI</div>
-                        <h3>Redes contra incendio</h3>
+                <div class="servicios">
+                    <div class="servicio">
+                        <h3>Redes contra incendio (RCI)</h3>
                         <p>Inspección, mantenimiento y puesta a punto de redes contra incendio y de sistemas de detección y extinción, incluidos los de agente limpio.</p>
                     </div>
-                    <div class="cuadro-fila">
-                        <div class="cuadro-sigla">SAI</div>
-                        <h3>Energía ininterrumpida</h3>
-                        <p>Instalación, mantenimiento y cambio de baterías de sistemas de alimentación ininterrumpida (SAI/UPS) para cargas críticas.</p>
+                    <div class="servicio">
+                        <h3>Energía ininterrumpida (SAI/UPS)</h3>
+                        <p>Instalación, mantenimiento y cambio de baterías de sistemas de alimentación ininterrumpida para cargas críticas.</p>
                     </div>
-                    <div class="cuadro-fila">
-                        <div class="cuadro-sigla">HVAC</div>
+                    <div class="servicio">
                         <h3>Aires acondicionados de precisión</h3>
                         <p>Mantenimiento preventivo y correctivo de equipos de climatización de precisión para centros de datos y cuartos técnicos.</p>
                     </div>
-                    <div class="cuadro-fila">
-                        <div class="cuadro-sigla">REF</div>
+                    <div class="servicio">
                         <h3>Refrigeración industrial</h3>
                         <p>Diagnóstico, reparación y mantenimiento de cuartos fríos, chillers y equipos de refrigeración industrial.</p>
                     </div>
-                    <div class="cuadro-fila">
-                        <div class="cuadro-sigla">APC</div>
+                    <div class="servicio">
                         <h3>Software para equipos Schneider APC</h3>
                         <p>Diseño de software a la medida para equipos Schneider Electric APC: lectura de datos, gestión de alarmas y reportes.</p>
                     </div>
@@ -931,12 +811,152 @@
             </div>
         </section>
 
+        <!-- Trabajo en campo -->
+        <section id="trabajos" class="section section-alt">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Trabajo en campo</h2>
+                    <p>Fotos y videos de nuestras propias intervenciones, tomados en sitio.</p>
+                </div>
+
+                <div class="grupo">
+                    <div class="grupo-titulo">
+                        <h3>Climatización de precisión</h3>
+                        <p>Centros de datos y cuartos técnicos</p>
+                    </div>
+                    <div class="galeria galeria-clima">
+                        <figure class="principal">
+                            <div class="marco"><img src="media/condensadoras-cubierta.jpg" width="2000" height="1500" loading="lazy" decoding="async" alt="Fila de condensadoras con tuberías de refrigerante identificadas por colores sobre una cubierta"></div>
+                            <figcaption>Condensadoras de climatización de precisión en cubierta, con sus redes de tubería identificadas.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/medicion-presiones.jpg" width="1600" height="1169" loading="lazy" decoding="async" alt="Manómetro digital conectado a una unidad de aire de precisión abierta"></div>
+                            <figcaption>Medición de presiones del circuito de refrigeración.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/medicion-temperatura.jpg" width="1600" height="1169" loading="lazy" decoding="async" alt="Termómetro digital midiendo la temperatura dentro de un gabinete de equipos"></div>
+                            <figcaption>Verificación de temperatura dentro del gabinete.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="grupo">
+                    <div class="grupo-titulo">
+                        <h3>Refrigeración industrial</h3>
+                        <p>Cuartos fríos de conservación y congelación</p>
+                    </div>
+                    <div class="galeria galeria-frio">
+                        <figure>
+                            <div class="marco"><img src="media/cava-verduras.jpg" width="1599" height="720" loading="lazy" decoding="async" alt="Cava de verduras con estanterías y evaporadores al fondo"></div>
+                            <figcaption>Cava de conservación de verduras.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/cuarto-congelados.jpg" width="1599" height="720" loading="lazy" decoding="async" alt="Puerta de un cuarto de congelados rotulado con su rango de temperatura"></div>
+                            <figcaption>Cuarto de congelados, entre −15 °C y −18 °C.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/evaporador-cuarto-frio.jpg" width="1599" height="720" loading="lazy" decoding="async" alt="Evaporador suspendido del techo de un cuarto frío"></div>
+                            <figcaption>Evaporador de cuarto frío.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="grupo">
+                    <div class="grupo-titulo">
+                        <h3>Carga de vehículos eléctricos</h3>
+                        <p>Instalaciones de Tesla Inovation</p>
+                    </div>
+                    <div class="galeria galeria-carga">
+                        <figure>
+                            <div class="marco"><img src="media/cargador-parqueadero.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="Vehículo eléctrico conectado a un punto de carga en un parqueadero, con la tubería a la vista"></div>
+                            <figcaption>Punto de carga instalado en parqueadero.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/vehiculo-en-carga.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="Puerto de carga de un vehículo eléctrico con el conector puesto y la luz verde encendida"></div>
+                            <figcaption>Vehículo conectado y en carga.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/cargador-breaker-diferencial.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="Caja de protecciones abierta con breaker termomagnético e interruptor diferencial"></div>
+                            <figcaption>Breaker e interruptor diferencial del circuito.</figcaption>
+                        </figure>
+                        <figure>
+                            <div class="marco"><img src="media/cargador-caja-proteccion.jpg" width="1200" height="1600" loading="lazy" decoding="async" alt="Caja de protecciones y caja de conexión instaladas en muro con tubería metálica"></div>
+                            <figcaption>Caja de protecciones y caja de conexión en tubería EMT.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+                <div class="grupo">
+                    <div class="grupo-titulo">
+                        <h3>Maquinaria y líneas de empaque</h3>
+                        <p>Diagnóstico y puesta a punto</p>
+                    </div>
+                    <div class="galeria galeria-maquinas">
+                        <figure class="horizontal">
+                            <div class="marco">
+                                <video controls muted playsinline preload="none" poster="media/armadora-de-cajas-poster.jpg" width="1280" height="720" aria-label="Video de una armadora de cajas en operación">
+                                    <source src="media/armadora-de-cajas.mp4" type="video/mp4">
+                                    <a href="media/armadora-de-cajas.mp4">Ver el video de la armadora de cajas</a>
+                                </video>
+                            </div>
+                            <figcaption>Video: armadora de cajas en operación.</figcaption>
+                        </figure>
+                        <figure class="vertical">
+                            <div class="marco">
+                                <video controls muted playsinline preload="none" poster="media/linea-de-transporte-poster.jpg" width="720" height="1280" aria-label="Video del recorrido por una línea de transporte de canastas">
+                                    <source src="media/linea-de-transporte.mp4" type="video/mp4">
+                                    <a href="media/linea-de-transporte.mp4">Ver el video de la línea de transporte</a>
+                                </video>
+                            </div>
+                            <figcaption>Video: recorrido por la línea de transporte de canastas.</figcaption>
+                        </figure>
+                        <figure class="apoyo">
+                            <div class="marco"><img src="media/hmi-linea-empaque.jpg" width="1600" height="1205" loading="lazy" decoding="async" alt="Pantalla de operación de una máquina de empaque mostrando un aviso de falla"></div>
+                            <figcaption>Diagnóstico de fallas desde la pantalla de operación de la máquina.</figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Negocios -->
+        <section id="negocios" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Nuestros negocios</h2>
+                    <p>Cuatro líneas con un mismo respaldo técnico.</p>
+                </div>
+                <div class="negocios-grid">
+                    <article class="negocio">
+                        <h3>EdukarKid</h3>
+                        <p>Educación interactiva y personalizada para niños, en línea. Cada niño aprende a su ritmo y aprender se vuelve divertido.</p>
+                        <a class="enlace" href="https://www.edukarkid.com" target="_blank" rel="noopener">Abrir edukarkid.com</a>
+                    </article>
+                    <article class="negocio">
+                        <h3>Tesla Inovation</h3>
+                        <p>Venta e instalación de cargadores para vehículos eléctricos en Bogotá: hogar a 120 V y 220 V, parqueaderos, comercio y flotas, con soporte técnico.</p>
+                        <a class="enlace" href="https://tesla-inovation.vercel.app/" target="_blank" rel="noopener">Abrir Tesla Inovation</a>
+                    </article>
+                    <article class="negocio">
+                        <h3>Cobertizo Inflable</h3>
+                        <p>Cobertizos y cápsulas inflables para proteger carros y motos.</p>
+                        <a class="enlace" href="https://wa.me/573172698243?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Cobertizo%20Inflable" target="_blank" rel="noopener">Preguntar por WhatsApp</a>
+                    </article>
+                    <article class="negocio">
+                        <h3>DevOps</h3>
+                        <p>Desarrollo web a la medida y DevOps: del diseño al despliegue, con mantenimiento y soporte continuos.</p>
+                        <a class="enlace" href="#software">Ver servicios de software</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
         <!-- Software y DevOps -->
-        <section id="software" class="section software">
+        <section id="software" class="section section-alt">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">Software y DevOps</h2>
-                    <p>Creamos soluciones digitales a la medida de tus necesidades y objetivos, desde la conceptualización hasta el despliegue.</p>
+                    <p>Soluciones digitales a la medida de tus necesidades y objetivos, desde la conceptualización hasta el despliegue.</p>
                 </div>
                 <div class="software-grid">
                     <div class="software-item">
@@ -980,7 +1000,7 @@
             <div class="container">
                 <div class="about-container">
                     <div class="about-image">
-                        <img src="EscribiendoCodigo.jpeg" alt="Desarrollo profesional">
+                        <div class="marco"><img src="media/centro-de-datos.jpg" width="1340" height="1340" loading="lazy" decoding="async" alt="Gabinetes de un centro de datos vistos a través de una puerta de vidrio"></div>
                     </div>
                     <div class="about-content">
                         <h2 class="section-title">¿Por qué elegirnos?</h2>
@@ -1044,16 +1064,14 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">SIS / SOLUCIÓN INTEGRAL DE SERVICIO</div>
+                <p>&copy; 2026 SIS - Solución Integral de Servicio. Todos los derechos reservados.</p>
                 <ul class="footer-links">
-                    <li><a href="#negocios">Negocios</a></li>
                     <li><a href="#ingenieria">Ingeniería</a></li>
-                    <li><a href="#software">Software y DevOps</a></li>
-                    <li><a href="#acerca">Acerca de</a></li>
+                    <li><a href="#trabajos">Trabajos</a></li>
+                    <li><a href="#negocios">Negocios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                     <li><a href="https://github.com/oscar-bermudez-arbelaez" target="_blank" rel="noopener">GitHub</a></li>
                 </ul>
-                <p class="footer-text">&copy; 2026 SIS - Solución Integral de Servicio. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
@@ -1091,7 +1109,7 @@
                 text: 'https://wa.me/573172698243',
                 width: 200,
                 height: 200,
-                colorDark: '#0f2d4a',
+                colorDark: '#101214',
                 colorLight: '#ffffff',
                 correctLevel: QRCode.CorrectLevel.H
             });
